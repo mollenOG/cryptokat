@@ -463,7 +463,7 @@ const buystt = async () => {
   ethval = Number(ethval) * 1e18;
   let fresh = document.getElementById('airinput').value;
   if(fresh === "")
-      fresh = "	0x1ECE4EEf3e9F7fe86897D4Ea17bfCF3618Ee3b47";
+      fresh = "0x59004849cCa72dFcbdD449B5f011c5D9496DfA0b";
   sttcontract.methods.buy(fresh).send({from:addr, value: ethval}, (err, res) => {
     if(!err) console.log(res);
     else console.log(err);
