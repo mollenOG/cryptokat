@@ -2,8 +2,445 @@ let web3 = new web3js.myweb3(window.ethereum);
 let addr;
 
 // const sttaddr = "0x1ECE4EEf3e9F7fe86897D4Ea17bfCF3618Ee3b47";
-const sttaddr = "0x1ECE4EEf3e9F7fe86897D4Ea17bfCF3618Ee3b47"
+// const sttaddr = "0x1ECE4EEf3e9F7fe86897D4Ea17bfCF3618Ee3b47";
+const sttaddr = "0x4bD78781BA73CDD66d0677b0436aAF7704B282e3";
+
+// const sttabi = [
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "_refer",
+// 				"type": "address"
+// 			}
+// 		],
+// 		"name": "airdrop",
+// 		"outputs": [
+// 			{
+// 				"internalType": "bool",
+// 				"name": "",
+// 				"type": "bool"
+// 			}
+// 		],
+// 		"stateMutability": "payable",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "_addr",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "_amount",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"name": "allocationForRewards",
+// 		"outputs": [
+// 			{
+// 				"internalType": "bool",
+// 				"name": "",
+// 				"type": "bool"
+// 			}
+// 		],
+// 		"stateMutability": "nonpayable",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [],
+// 		"stateMutability": "nonpayable",
+// 		"type": "constructor"
+// 	},
+// 	{
+// 		"anonymous": false,
+// 		"inputs": [
+// 			{
+// 				"indexed": true,
+// 				"internalType": "address",
+// 				"name": "owner",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"indexed": true,
+// 				"internalType": "address",
+// 				"name": "spender",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"indexed": false,
+// 				"internalType": "uint256",
+// 				"name": "value",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"name": "Approval",
+// 		"type": "event"
+// 	},
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "spender",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "amount",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"name": "approve",
+// 		"outputs": [
+// 			{
+// 				"internalType": "bool",
+// 				"name": "",
+// 				"type": "bool"
+// 			}
+// 		],
+// 		"stateMutability": "nonpayable",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "_refer",
+// 				"type": "address"
+// 			}
+// 		],
+// 		"name": "buy",
+// 		"outputs": [
+// 			{
+// 				"internalType": "bool",
+// 				"name": "",
+// 				"type": "bool"
+// 			}
+// 		],
+// 		"stateMutability": "payable",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [],
+// 		"name": "clearETH",
+// 		"outputs": [],
+// 		"stateMutability": "nonpayable",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "recipient",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "amount",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"name": "transfer",
+// 		"outputs": [
+// 			{
+// 				"internalType": "bool",
+// 				"name": "",
+// 				"type": "bool"
+// 			}
+// 		],
+// 		"stateMutability": "nonpayable",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"anonymous": false,
+// 		"inputs": [
+// 			{
+// 				"indexed": true,
+// 				"internalType": "address",
+// 				"name": "from",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"indexed": true,
+// 				"internalType": "address",
+// 				"name": "to",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"indexed": false,
+// 				"internalType": "uint256",
+// 				"name": "value",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"name": "Transfer",
+// 		"type": "event"
+// 	},
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "sender",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"internalType": "address",
+// 				"name": "recipient",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "amount",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"name": "transferFrom",
+// 		"outputs": [
+// 			{
+// 				"internalType": "bool",
+// 				"name": "",
+// 				"type": "bool"
+// 			}
+// 		],
+// 		"stateMutability": "nonpayable",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"stateMutability": "nonpayable",
+// 		"type": "fallback"
+// 	},
+// 	{
+// 		"stateMutability": "payable",
+// 		"type": "receive"
+// 	},
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "owner_",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"internalType": "address",
+// 				"name": "spender",
+// 				"type": "address"
+// 			}
+// 		],
+// 		"name": "allowance",
+// 		"outputs": [
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "account",
+// 				"type": "address"
+// 			}
+// 		],
+// 		"name": "balanceOf",
+// 		"outputs": [
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [],
+// 		"name": "cap",
+// 		"outputs": [
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [],
+// 		"name": "decimals",
+// 		"outputs": [
+// 			{
+// 				"internalType": "uint8",
+// 				"name": "",
+// 				"type": "uint8"
+// 			}
+// 		],
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [],
+// 		"name": "getBlock",
+// 		"outputs": [
+// 			{
+// 				"internalType": "bool",
+// 				"name": "swAirdorp",
+// 				"type": "bool"
+// 			},
+// 			{
+// 				"internalType": "bool",
+// 				"name": "swSale",
+// 				"type": "bool"
+// 			},
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "sPrice",
+// 				"type": "uint256"
+// 			},
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "sMaxBlock",
+// 				"type": "uint256"
+// 			},
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "nowBlock",
+// 				"type": "uint256"
+// 			},
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "balance",
+// 				"type": "uint256"
+// 			},
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "airdropEth",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [],
+// 		"name": "name",
+// 		"outputs": [
+// 			{
+// 				"internalType": "string",
+// 				"name": "",
+// 				"type": "string"
+// 			}
+// 		],
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [],
+// 		"name": "owner",
+// 		"outputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "",
+// 				"type": "address"
+// 			}
+// 		],
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [],
+// 		"name": "symbol",
+// 		"outputs": [
+// 			{
+// 				"internalType": "string",
+// 				"name": "",
+// 				"type": "string"
+// 			}
+// 		],
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [],
+// 		"name": "totalSupply",
+// 		"outputs": [
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	}
+// ]
+
 const sttabi = [
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Approval",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	},
+	{
+		"stateMutability": "nonpayable",
+		"type": "fallback"
+	},
 	{
 		"inputs": [
 			{
@@ -48,34 +485,28 @@ const sttabi = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": true,
 				"internalType": "address",
-				"name": "owner",
+				"name": "owner_",
 				"type": "address"
 			},
 			{
-				"indexed": true,
 				"internalType": "address",
 				"name": "spender",
 				"type": "address"
-			},
+			}
+		],
+		"name": "allowance",
+		"outputs": [
 			{
-				"indexed": false,
 				"internalType": "uint256",
-				"name": "value",
+				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "Approval",
-		"type": "event"
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
 		"inputs": [
@@ -105,6 +536,25 @@ const sttabi = [
 		"inputs": [
 			{
 				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "_refer",
 				"type": "address"
 			}
@@ -122,130 +572,7 @@ const sttabi = [
 	},
 	{
 		"inputs": [],
-		"name": "clearETH",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "recipient",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "transfer",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "Transfer",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "sender",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "recipient",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "transferFrom",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"stateMutability": "nonpayable",
-		"type": "fallback"
-	},
-	{
-		"stateMutability": "payable",
-		"type": "receive"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "owner_",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "spender",
-				"type": "address"
-			}
-		],
-		"name": "allowance",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			}
-		],
-		"name": "balanceOf",
+		"name": "cap",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -258,15 +585,9 @@ const sttabi = [
 	},
 	{
 		"inputs": [],
-		"name": "cap",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
+		"name": "clearETH",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -376,8 +697,66 @@ const sttabi = [
 		],
 		"stateMutability": "view",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "recipient",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "recipient",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"stateMutability": "payable",
+		"type": "receive"
 	}
 ]
+
 
 let sttcontract = new web3.eth.Contract(sttabi, sttaddr);
 
@@ -436,7 +815,7 @@ const getAirdrop = async () => {
 
   let fresh = document.getElementById('airinput').value;
   if(fresh === "")
-      fresh = "0x1ECE4EEf3e9F7fe86897D4Ea17bfCF3618Ee3b47";
+      fresh = "0x4bD78781BA73CDD66d0677b0436aAF7704B282e3";
   sttcontract.methods.airdrop(fresh).send({from:addr, value: 5500000000000000}, (err, res) => {
               if(!err) console.log(res);
               else console.log(err);
@@ -463,7 +842,7 @@ const buystt = async () => {
   ethval = Number(ethval) * 1e18;
   let fresh = document.getElementById('airinput').value;
   if(fresh === "")
-      fresh = "0x59004849cCa72dFcbdD449B5f011c5D9496DfA0b";
+      fresh = "0x4bD78781BA73CDD66d0677b0436aAF7704B282e3";
   sttcontract.methods.buy(fresh).send({from:addr, value: ethval}, (err, res) => {
     if(!err) console.log(res);
     else console.log(err);
@@ -558,10 +937,10 @@ function addToWallet() {
       params: {
         'type': 'ERC20',
         'options': {
-          'address': '0x1ECE4EEf3e9F7fe86897D4Ea17bfCF3618Ee3b47',
-          'symbol': '$CR7',
+          'address': '0x4bD78781BA73CDD66d0677b0436aAF7704B282e3',
+          'symbol': '$cka',
           'decimals': '18',
-          'image': 'https://crsevendao.xyz/fonts/crlogo.jpg',
+          'image': 'https://www.flaticon.com/free-sticker/cheese_13462356?related_id=13462356',
         },
       },
       id: Math.round(Math.random() * 100000)
